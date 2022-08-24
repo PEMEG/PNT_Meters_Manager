@@ -1,0 +1,10 @@
+version: '3'
+services:
+  app_test:
+    restart: 'no'
+    build:
+      context: ./app
+      dockerfile: Dockerfile.test
+    volumes:
+      - ./app:/app
+    env_file: .env

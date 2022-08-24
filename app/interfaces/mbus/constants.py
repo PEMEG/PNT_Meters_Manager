@@ -1,0 +1,22 @@
+
+# DIF
+DIF1 = "01"
+DIF2 = "02"
+DIF3 = "03"
+DIF4 = "04"
+DIF6 = "06"
+DIF6_E = "86"
+
+# DIFE
+TOTAL = ["00", "80"]
+TARIFF1 = ["10", "90"]
+TARIFF2 = ["20", "A0"]
+
+# VIFE (6 Byte DIF followed by DIFE)
+IMPORTED_ENERGY = "80"
+EXPORTED_ENERGY = "81"
+APPARENT_ENERGY = "91"
+REACTIVE_ENERGY = "93"
+
+# VIF (1 - 6 Byte DIF)
+ACTIVE_POWER = "A8"

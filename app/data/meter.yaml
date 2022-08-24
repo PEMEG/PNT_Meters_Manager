@@ -1,0 +1,13 @@
+---
+- id: 1
+  name: modbus_meter
+  host: 192.168.1.10
+  port: 502
+  address:
+  interface: modbus
+- id: 2
+  name: mbus_meter
+  host: 192.168.1.11
+  port: 10001
+  address: 3
+  interface: mbus

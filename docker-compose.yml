@@ -1,0 +1,40 @@
+version: '3'
+services:
+  app:
+    restart: "no"
+    build:
+      context: ./app
+      dockerfile: Dockerfile.prod
+    volumes:
+      - ./app:/app
+    networks:
+      - meters_network
+    depends_on:
+      - influxdb
+    env_file: .env
+  grafana:
+    restart: unless-stopped
+    image: grafana/grafana
+    volumes:
+      - ./grafana_config:/etc/grafana
+    networks:
+      - meters_network
+    ports:
+      - "80:80"
+    depends_on:
+      - app
+    env_file: .env
+  influxdb:
+    restart: unless-stopped
+    image: influxdb:latest
+    volumes:
+      - ./influxdb_storage:/var/lib/influxdb2
+    ports:
+      - "8086:8086"
+    networks:
+      - meters_network
+    depends_on:
+      - test
+    env_file: .env
+networks:
+  meters_network:
